@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mart Platform | Syed Muhammad Areeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a; --bg-surface: #1e293b; 
+            --accent-primary: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #f8fafc; --text-muted: #94a3b8; --glass-bg: rgba(30, 41, 59, 0.7);
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text-main); background-color: var(--bg-color); overflow-x: hidden; }
+        
+        nav { background: var(--glass-bg); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1.2rem 2rem; display: flex; align-items: center; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s ease; display: flex; align-items: center; }
+        nav a i { margin-right: 10px; transition: transform 0.3s ease; }
+        nav a:hover { color: var(--accent-primary); }
+        nav a:hover i { transform: translateX(-5px); }
+
+        header { padding: 8rem 2rem 4rem; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%); }
+        header h1 { margin: 0; font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 0.8s ease-out; }
+        header p { font-size: 1.2rem; color: var(--accent-primary); animation: fadeInUp 0.8s ease-out 0.2s both; }
+
+        main { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+        
+        .hero-image-container { overflow: hidden; border-radius: 16px; margin-bottom: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); opacity: 0; animation: scaleIn 1s ease-out 0.4s both; }
+        .hero-image { width: 100%; height: 400px; object-fit: cover; transition: transform 0.5s ease; }
+        .hero-image-container:hover .hero-image { transform: scale(1.05); }
+
+        section { margin-bottom: 4rem; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+        section:nth-of-type(1) { animation-delay: 0.6s; }
+        section:nth-of-type(2) { animation-delay: 0.8s; }
+
+        h2 { font-size: 2rem; border-bottom: 2px solid rgba(56, 189, 248, 0.3); padding-bottom: 0.5rem; display: inline-block; margin-bottom: 1.5rem; }
+        p { color: var(--text-muted); font-size: 1.1rem; }
+
+        .tech-stack-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+        .tech-pill { background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; animation: pulseGlow 2s infinite alternate; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .feature-card { background: var(--bg-surface); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; opacity: 0; transform: translateY(20px); }
+        .feature-grid .feature-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 1s forwards; }
+        .feature-grid .feature-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 1.2s forwards; }
+        .feature-grid .feature-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 1.4s forwards; }
+        .feature-grid .feature-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 1.6s forwards; }
+        
+        .feature-card:hover { transform: translateY(-10px) !important; border-color: var(--accent-primary); box-shadow: 0 10px 20px var(--accent-glow); }
+        .feature-icon { font-size: 2.5rem; color: var(--accent-primary); margin-bottom: 1rem; animation: float 3s ease-in-out infinite; }
+        .feature-card h3 { color: var(--text-main); margin-top: 0; }
+        .feature-card p { font-size: 0.95rem; margin-bottom: 0; }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulseGlow { from { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); } to { box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </nav>
+
+    <header>
+        <h1>E-Mart Platform</h1>
+        <p>Full-Stack E-Commerce & Inventory System</p>
+    </header>
+
+    <main>
+        <div class="hero-image-container">
+            <img src="https://via.placeholder.com/900x400/1e293b/38bdf8?text=E-Mart+Storefront" alt="Project Screenshot" class="hero-image">
+        </div>
+
+        <section>
+            <h2><i class="fas fa-shopping-cart" style="color: var(--accent-primary); margin-right: 15px; animation: float 3s infinite;"></i> Project Overview</h2>
+            <p>A comprehensive web application designed to handle end-to-end e-commerce operations. From customer product browsing to backend inventory management for administrators, demonstrating full-stack relational database integration.</p>
+            
+            <div class="tech-stack-container">
+                <div class="tech-pill"><i class="fab fa-php"></i> PHP</div>
+                <div class="tech-pill"><i class="fas fa-database"></i> MySQL</div>
+                <div class="tech-pill"><i class="fab fa-html5"></i> HTML/CSS</div>
+                <div class="tech-pill"><i class="fab fa-js"></i> JavaScript</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>System Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-sitemap feature-icon"></i>
+                    <h3>Relational Database</h3>
+                    <p>Engineered a robust MySQL architecture to track users, orders, products, and categories with complete data integrity.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lock feature-icon" style="animation-delay: 0.3s;"></i>
+                    <h3>Secure Backend</h3>
+                    <p>Wrote dynamic PHP scripts to handle secure user authentication, shopping cart logic, and safe checkout processing.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon" style="animation-delay: 0.6s;"></i>
+                    <h3>Admin Dashboard</h3>
+                    <p>Dedicated portal for store managers to add new stock, update prices, and view live order statuses.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon" style="animation-delay: 0.9s;"></i>
+                    <h3>Responsive UI</h3>
+                    <p>Ensured the shopping experience is seamless and interactive across both desktop and mobile devices.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Syed Muhammad Areeb.</p>
+    </footer>
+
+</body>
+</html>

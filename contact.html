@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Syed Muhammad Areeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a; --bg-surface: #1e293b; 
+            --accent-primary: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #f8fafc; --text-muted: #94a3b8; --glass-bg: rgba(30, 41, 59, 0.7);
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text-main); background-color: var(--bg-color); overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { background: var(--glass-bg); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1.2rem 2rem; display: flex; align-items: center; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s ease; display: flex; align-items: center; }
+        nav a i { margin-right: 10px; transition: transform 0.3s ease; }
+        nav a:hover { color: var(--accent-primary); }
+        nav a:hover i { transform: translateX(-5px); }
+
+        /* Header */
+        header { padding: 8rem 2rem 4rem; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%); }
+        header h1 { margin: 0; font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 0.8s ease-out; }
+        header p { font-size: 1.2rem; color: var(--accent-primary); animation: fadeInUp 0.8s ease-out 0.2s both; }
+
+        /* Main Contact Layout */
+        main { max-width: 1000px; margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+        @media (max-width: 768px) { main { grid-template-columns: 1fr; gap: 2rem; } }
+
+        /* Left Side: Contact Info */
+        .contact-info { opacity: 0; animation: fadeInLeft 0.8s ease-out 0.4s forwards; }
+        .contact-info h2 { font-size: 2rem; margin-top: 0; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(56, 189, 248, 0.3); padding-bottom: 0.5rem; display: inline-block; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .info-item { display: flex; align-items: center; margin-bottom: 1.5rem; }
+        .info-icon { width: 50px; height: 50px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-primary); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--accent-primary); font-size: 1.2rem; margin-right: 1rem; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); transition: all 0.3s ease; }
+        .info-item:hover .info-icon { background: var(--accent-primary); color: #0f172a; box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.1); }
+        .info-text h4 { margin: 0; color: var(--text-main); font-size: 1.1rem; }
+        .info-text a { color: var(--text-muted); font-size: 0.95rem; text-decoration: none; transition: color 0.3s ease; }
+        .info-text a:hover { color: var(--accent-primary); }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-links a { width: 45px; height: 45px; background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 1.2rem; transition: all 0.3s ease; text-decoration: none; }
+        .social-links a:hover { color: var(--accent-primary); border-color: var(--accent-primary); transform: translateY(-5px); box-shadow: 0 5px 15px var(--accent-glow); }
+
+        /* Right Side: Contact Form */
+        .contact-form-container { background: var(--bg-surface); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3); opacity: 0; animation: fadeInRight 0.8s ease-out 0.6s forwards; }
+        
+        .form-group { margin-bottom: 1.5rem; position: relative; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; }
+        .form-control { width: 100%; padding: 12px 15px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box; }
+        .form-control:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 10px var(--accent-glow); background: rgba(15, 23, 42, 0.9); }
+        textarea.form-control { resize: vertical; min-height: 150px; }
+
+        .submit-btn { width: 100%; background: var(--accent-primary); color: #0f172a; border: none; padding: 15px; border-radius: 8px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px var(--accent-glow); margin-top: 1rem; }
+        .submit-btn:hover { background: #f8fafc; transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); margin-top: 2rem; }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header>
+        <h1>Get In Touch</h1>
+        <p>Let's build something amazing together.</p>
+    </header>
+
+    <main>
+        <div class="contact-info">
+            <h2>Contact Details</h2>
+            <p>Whether you have a question about my AI projects, want to discuss a freelance opportunity, or just want to say hi, feel free to drop a message.</p>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="info-text">
+                    <h4>Location</h4>
+                    <span>Lahore, Punjab, Pakistan</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-text">
+                    <h4>Email</h4>
+                    <a href="mailto:areebsd06@gmail.com">areebsd06@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="info-text">
+                    <h4>Phone / WhatsApp</h4>
+                    <a href="tel:+923328174262">03328174262</a>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/sdareeb06" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/syed-areeb-473597351/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <form name="contact" method="POST" data-netlify="true">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Ali Khan" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="ali@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Inquiry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Hello Areeb, I would like to discuss..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Syed Muhammad Areeb.</p>
+    </footer>
+
+</body>
+</html>
