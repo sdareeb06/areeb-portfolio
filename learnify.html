@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Legal Assistant | Syed Muhammad Areeb</title>
+    <title>Learnify Academy | Syed Muhammad Areeb</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -46,7 +46,7 @@
 
         .hero-image { 
             width: 100%; 
-            height: auto; /* Prevents cropping */
+            height: auto; /* Picture ko crop nahi hone de ga */
             border-radius: 14px; 
             display: block;
             border: 1px solid rgba(255,255,255,0.05);
@@ -81,7 +81,6 @@
 
         footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
 
-        /* Keyframes */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes scaleIn { from { opacity: 0; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
         @keyframes pulseGlow { from { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); } to { box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); } }
@@ -95,54 +94,52 @@
     </nav>
 
     <header>
-        <h1>AI Legal Assistant</h1>
-        <p>Intelligent Legal Query Resolution System (FYP)</p>
+        <h1>Learnify Academy</h1>
+        <p>Modern E-Learning & Course Management System</p>
     </header>
 
     <main>
         
         <div class="hero-image-wrapper">
-            <img src=" " alt="AI Legal Assistant Interface" class="hero-image">
+            <img src="learnify.png" alt="Learnify Academy Dashboard" class="hero-image" onerror="this.src='https://via.placeholder.com/900x450/1e293b/38bdf8?text=Add+Your+Learnify+Screenshot+Here'">
         </div>
 
         <section>
-            <h2><i class="fas fa-brain" style="color: var(--accent-primary); margin-right: 15px; animation: float 3s infinite;"></i> Project Overview</h2>
-            <p>Designed to bridge the gap between complex legal jargon and everyday understanding. By leveraging artificial intelligence, this system processes custom legal datasets to provide accurate, context-aware answers to user queries.</p>
+            <h2><i class="fas fa-graduation-cap" style="color: var(--accent-primary); margin-right: 15px; animation: float 3s infinite;"></i> Project Overview</h2>
+            <p>An interactive and scalable e-learning platform designed to bridge the gap between educators and students. It features seamless course enrollment, progress tracking, and secure content delivery.</p>
             
             <div class="tech-stack-container">
-                <div class="tech-pill"><i class="fab fa-python"></i> Python</div>
-                <div class="tech-pill"><i class="fas fa-server"></i> Django/DRF</div>
-                <div class="tech-pill"><i class="fas fa-database"></i> Custom Datasets</div>
-                <div class="tech-pill"><i class="fas fa-robot"></i> NLP / ML Models</div>
-                <div class="tech-pill"><i class="fas fa-user-tie"></i> Lawyer Avatar</div>
-                <div class="tech-pill"><i class="fas fa-balance-scale"></i> Legal-BERT</div>
+                <div class="tech-pill"><i class="fab fa-html5"></i> bootstrap/Tailwind</div>
+                <div class="tech-pill"><i class="fab fa-js"></i> Python</div>
+                <div class="tech-pill"><i class="fas fa-server"></i> Django/Drf</div>
+                <div class="tech-pill"><i class="fas fa-database"></i> MySql/Php</div>
             </div>
         </section>
 
         <section>
             <h2><i class="fas fa-lightbulb" style="color: var(--accent-primary); margin-right: 15px; animation: float 3s infinite;"></i> Why We Built It</h2>
             <div class="motivation-box">
-                <p>"Legal terminology is often inaccessible to the average person, creating a barrier to basic legal understanding. We developed this AI Assistant as our Final Year Project to democratize legal information. By training NLP models specifically on legal datasets, we aimed to build a reliable tool that could interpret plain-language questions and provide accurate, hallucination-free guidance, simulating a consultation with a real lawyer."</p>
+                <p>"Education should be accessible, interactive, and easy to manage. We built Learnify Academy to solve the common frustrations students and instructors face with clunky legacy systems. The goal was to create a modern, fast, and intuitive platform that allows educators to focus on teaching and students to focus on learning, while implementing a robust backend architecture that scales."</p>
             </div>
         </section>
 
         <section>
-            <h2>Architecture & Features</h2>
+            <h2>Key Features</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <i class="fas fa-server feature-icon"></i>
-                    <h3>Django Backend</h3>
-                    <p>Structured a secure and scalable backend to manage API requests, user sessions, and database interactions efficiently.</p>
+                    <i class="fas fa-laptop-code feature-icon"></i>
+                    <h3>Course Catalog</h3>
+                    <p>A dynamic, easily navigable interface for students to browse, filter, and enroll in available educational courses.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-filter feature-icon" style="animation-delay: 0.5s;"></i>
-                    <h3>Data Preprocessing</h3>
-                    <p>Handled large volumes of raw legal text, cleaning and structuring it into custom datasets for machine learning training.</p>
+                    <i class="fas fa-user-graduate feature-icon" style="animation-delay: 0.5s;"></i>
+                    <h3>Student Dashboard</h3>
+                    <p>Personalized dashboards for users to track their learning progress, view grades, and access study materials.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-network-wired feature-icon" style="animation-delay: 1s;"></i>
-                    <h3>AI Integration</h3>
-                    <p>Implemented NLP models to understand user intent and fetch the most legally sound and relevant responses without hallucinations.</p>
+                    <i class="fas fa-chalkboard-teacher feature-icon" style="animation-delay: 1s;"></i>
+                    <h3>Admin Portal</h3>
+                    <p>A secure backend system for instructors to manage course content, upload videos, and monitor student performance.</p>
                 </div>
             </div>
         </section>

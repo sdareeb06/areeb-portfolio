@@ -10,12 +10,12 @@
     <style>
         /* --- Premium Dark Theme Variables --- */
         :root {
-            --bg-color: #0f172a;      /* Deep Slate */
-            --bg-surface: #1e293b;    /* Lighter Slate for cards */
-            --accent-primary: #38bdf8; /* Vibrant Cyan/Blue */
+            --bg-color: #0f172a;      
+            --bg-surface: #1e293b;    
+            --accent-primary: #38bdf8; 
             --accent-glow: rgba(56, 189, 248, 0.4);
-            --text-main: #f8fafc;     /* Off-white */
-            --text-muted: #94a3b8;    /* Soft grey */
+            --text-main: #f8fafc;     
+            --text-muted: #94a3b8;    
             --glass-bg: rgba(30, 41, 59, 0.7);
         }
         
@@ -60,7 +60,7 @@
             color: var(--accent-primary);
         }
 
-        /* --- Hero Section (The First Impression) --- */
+        /* --- Hero Section --- */
         header {
             min-height: 100vh;
             display: flex;
@@ -119,25 +119,28 @@
         }
 
         .hero-buttons {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             animation: fadeInUp 1s ease-out 0.6s both;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
         .btn-primary {
-            background: var(--accent-primary);
-            color: #0f172a;
+            background: transparent;
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
             padding: 12px 30px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--accent-glow);
-            margin: 0 10px;
-            display: inline-block;
         }
 
         .btn-primary:hover {
-            background: #f8fafc;
+            background: var(--accent-primary);
+            color: #0f172a;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px var(--accent-glow);
         }
@@ -145,18 +148,45 @@
         .btn-secondary {
             border: 2px solid var(--text-muted);
             color: var(--text-main);
-            padding: 10px 28px;
+            padding: 12px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin: 0 10px;
-            display: inline-block;
         }
 
         .btn-secondary:hover {
             border-color: var(--accent-primary);
             color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- GLOWING POP-UP RESUME BUTTON --- */
+        .btn-resume {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #0f172a;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: glowingPulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .btn-resume:hover {
+            animation-play-state: paused;
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
+            color: #fff;
+        }
+
+        @keyframes glowingPulse {
+            0% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.8); transform: scale(1.05); }
+            100% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); transform: scale(1); }
         }
 
         /* --- Main Content Layout --- */
@@ -192,7 +222,7 @@
             margin-left: 20px;
         }
 
-        /* --- Project Cards (Grid System) --- */
+        /* --- Project Cards (Grid System with Images) --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -202,7 +232,6 @@
         .project-card {
             background: var(--bg-surface);
             border-radius: 16px;
-            padding: 2rem;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.4s ease;
             position: relative;
@@ -220,6 +249,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
+            z-index: 10;
         }
 
         .project-card:hover {
@@ -230,6 +260,41 @@
 
         .project-card:hover::before {
             transform: scaleX(1);
+        }
+
+        /* ----- PERFECTED IMAGE STYLING ----- */
+     /* ----- 100% FIT IMAGE STYLING ----- */
+        .project-img-container {
+            width: 100%;
+            height: 220px; 
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: #0b1120; /* Darker background to act as a frame */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px; /* Adds a tiny frame around the image */
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* CRUCIAL: Ensures the whole image is visible without cropping */
+            object-position: center; /* Centers the image perfectly */
+            transition: transform 0.5s ease;
+            border-radius: 8px; /* Slightly rounded corners inside the frame */
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.08); /* Hover par halka sa zoom */
+        }
+        /* --------------------------- */
+
+        .project-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-card h3 {
@@ -369,11 +434,14 @@
             <img src="unnamed.jpg" alt="Syed Muhammad Areeb" class="profile-photo">
         </div>
         <h1>Syed Muhammad Areeb</h1>
-        <p> Software Developer | AI & Python Specialist </p>
+        <p>Software Developer | AI & Python Specialist</p>
         
         <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">View My Work</a>
-            <a href="contact.html" class="btn-secondary"><i class="far fa-envelope"></i> Contact Me</a>
+            <a href="resume.pdf" target="_blank" class="btn-resume">
+                <i class="fas fa-file-download"></i> Download CV
+            </a>
+            <a href="#projects" class="btn-primary">View Work</a>
+            <a href="contact.html" class="btn-secondary"><i class="far fa-envelope"></i> Contact</a>
         </div>
     </header>
 
@@ -390,24 +458,39 @@
             <div class="projects-grid">
                 
                 <a href="fyp.html" class="project-card">
-                    <h3>AI Legal Assistant</h3>
-                    <div class="tech-stack-mini">Python • Django • ML • Custom Datasets</div>
-                    <p>An intelligent legal query resolution system designed to process complex datasets and provide context-aware legal insights (Final Year Project).</p>
-                    <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                    <div class="project-img-container">
+                        <img src="fyp-cover.png" alt="AI Legal Assistant" class="project-img" onerror="this.src='https://via.placeholder.com/400x220/1e293b/38bdf8?text=Add+fyp-cover.png'">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Legal Assistant</h3>
+                        <div class="tech-stack-mini">Python • Django • ML • Custom Datasets</div>
+                        <p>An intelligent legal query resolution system designed to process complex datasets and provide context-aware legal insights.</p>
+                        <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                    </div>
                 </a>
 
                 <a href="emart.html" class="project-card">
-                    <h3>E-Mart Platform</h3>
-                    <div class="tech-stack-mini">PHP • MySQL • Full-Stack Web</div>
-                    <p>A comprehensive e-commerce architecture featuring a secure relational database, dynamic shopping logic, and a dedicated admin inventory portal.</p>
-                    <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                    <div class="project-img-container">
+                        <img src="emart.png" alt="E-Mart Platform" class="project-img" onerror="this.src='https://via.placeholder.com/400x220/1e293b/38bdf8?text=Add+emart-cover.png'">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Mart Platform</h3>
+                        <div class="tech-stack-mini">Django • MySQL • Tailwind • Python</div>
+                        <p>A comprehensive e-commerce architecture featuring a secure relational database, dynamic shopping logic, and admin portal.</p>
+                        <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                    </div>
                 </a>
 
-                <a href="counter.html" class="project-card">
-                    <h3>Person Counter Vision AI</h3>
-                    <div class="tech-stack-mini">Python • OpenCV • AI Object Detection</div>
-                    <p>A real-time computer vision analytics tool built to monitor foot traffic and automate entry/exit counting for retail environments.</p>
-                    <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                <a href="learnify.html" class="project-card">
+                    <div class="project-img-container">
+                        <img src="learnify.png" alt="Learnify Academy" class="project-img" onerror="this.src='https://via.placeholder.com/400x220/1e293b/38bdf8?text=Add+learnify-cover.png'">
+                    </div>
+                    <div class="project-content">
+                        <h3>Learnify Academy</h3>
+                        <div class="tech-stack-mini">Python • Django • Bootstrap • MySQL</div>
+                        <p>An interactive and scalable e-learning platform designed to bridge the gap between educators and students.</p>
+                        <div class="explore-link">Explore It <i class="fas fa-arrow-right"></i></div>
+                    </div>
                 </a>
 
             </div>
